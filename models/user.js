@@ -34,4 +34,4 @@ const userSchema = mongoose.Schema({
 
 const User=mongoose.model('User',userSchema)
 //여기의 스키마를 다른곳에서도 쓸 수 있게 expert 해주기
-module.experts = { User }
+module.exports = { User }
