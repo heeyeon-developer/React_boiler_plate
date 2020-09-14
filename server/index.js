@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 5000;//아무 번호나 해도 됨
+
 //body-parser를 이용해서 클라이언으의 req.body정보를 받아올 수 있음
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -29,6 +29,10 @@ mongoose.connect(config.mongoURI,{
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+app.get('/api/hello',(req,res)=>{
+  res.send("안녕하세요~~~")
+})
 
 
 app.post('/api/users/register', (req,res) => {
@@ -97,6 +101,8 @@ app.get('/api/users/logout',auth,(req, res) => {
     })
   })
 })
+
+const port = 5000; //아무 번호나 해도 됨
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
